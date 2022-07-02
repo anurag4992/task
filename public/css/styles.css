@@ -2,7 +2,7 @@
     padding: 2rem 1rem;
 }
 
-.task {
+.task, .forms {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -15,17 +15,29 @@
 .item {
    width: fit-content;
    align-self: center;
+   margin: 1v;
 }
 
 .here {
     text-decoration: underline;
     text-decoration-color: orange;
+    max-width: 50vw;
 }
 
 .task span {
-    width: 70vw;
+    width: 60vw;
 }
 
-.task form {
-    width: 7vw;
+.task .forms {
+    width: 40vw;
+}
+
+@media screen and (max-width : 400px) {
+    .forms {
+        flex-direction: column;
+    }
+
+    .item {
+        margin: 2vw;
+    }
 }

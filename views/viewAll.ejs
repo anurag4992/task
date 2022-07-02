@@ -2,8 +2,8 @@
 
 <div class="viewAll">
 <div class="task mt-3 mb-5">
-<h1 class="item here">Here are your all the tasks</h1>
-<form action="/deleteAll" method="post" class="item deleteAll">
+<h1 class="item here pad">Here are your all the tasks</h1>
+<form action="/deleteAll" method="post" class="item deleteAll ">
     <button>Delete All</button>
 </form>
 </div>
@@ -12,15 +12,15 @@
         <% for (let index = 0; index < tasks.length; index++) { %>
             <% const element = tasks[index] %>
             
-            <li class="task"><span class="item mb-2"><%= element %></span>
-                
-                <form action="/edit/<%= index %>" method="get" class="item">
+            <li class="task"><span class="item mb-2 pad"><%= element %></span>
+                <div class="forms">
+                <form action="/edit/<%= index %>" method="get" class="item pad">
                     <button type="submit" name="edit" class="item">Edit</button>
                 </form>
-                <form action="/delete" method="post">
+                <form action="/delete" method="post" class="pad item">
                     <button type="submit" name="delete" value="<%= index %>">Delete</button>
                 </form>
-                
+                </div>
             </li>
             <hr>
             
@@ -28,7 +28,7 @@
             
     </ul>
     <form action="/add" method="post" class="task newTask mt-5">
-        <textarea row="7" cols="40" name="add" class="item me-4" placeholder="Enter new task"></textarea>
+        <textarea row="7" cols="40" name="add" class="item me-4" placeholder="Enter new task" required></textarea>
         <button class="btn btn-lg btn-warning item">Add new item</button>
     </form>
     
