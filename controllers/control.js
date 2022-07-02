@@ -24,13 +24,16 @@ module.exports= {
         User.register(new User({username: req.body.username}), req.body.password, (err, user) => {
             if(err){
                 console.log(err)
-                res.render("signup")
+                res.redirect("/signup")
             }
-            
+            else{
             passport.authenticate("local")(req, res, () => {
-                res.redirect("/")
+                user.save(err, () => {
+                    res.redirect("/")
+                })
+                
             })
-        
+            }
         })
     },
     login : (req, res) => {
@@ -57,7 +60,7 @@ module.exports= {
         if(req.isAuthenticated()){
             User.findById({_id: req.user.id}, (err, user) => {
                 if(err){
-                    res.send(err)
+                    console.log(err);
                 }
                 else{
                     user.item=[...user.item, ...arr]
@@ -84,7 +87,7 @@ module.exports= {
         const id=req.params.id
         User.findById({_id: req.user.id}, (err, user) => {
             if(err){
-                res.send(err)
+                console.log(err);
             }
             else{
                 res.render("edit", {id: id, item: req.user.item[id]})
@@ -94,7 +97,7 @@ module.exports= {
     editPost : (req, res) => {
         User.findById({_id: req.user.id}, (err, user) => {
             if(err){
-                res.send(err)
+                console.log(err);
             }
             else{
                 user.item[req.body.update]=req.body.newTask
@@ -106,7 +109,7 @@ module.exports= {
     delete : (req, res) => {
         User.findById({_id: req.user.id}, (err, user) => {
             if(err){
-                res.send(err)
+                console.log(err);
             }
             else{
                 user.item.splice(req.body.delete, 1)
@@ -118,7 +121,7 @@ module.exports= {
     deleteAll : (req, res) => {
         User.findById({_id : req.user.id}, (err, user) => {
             if(err){
-                res.send(err)
+                console.log(err);
             }
             else{
                 user.item=new Array()
