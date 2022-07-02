@@ -1,0 +1,15 @@
+<%- include("partials/header") %> 
+
+<h2 class="my-3">Old task</h2>
+<textarea cols="50" rows="5" class="mb-2" disabled>
+    <%= item %>
+</textarea>
+<hr>
+<form action="/viewAll" method="post">
+    <h2 class="mb-4">Enter new task</h2>
+    <textarea class="mb-2" name="newTask" cols="50" rows="10" placeholder="Enter the task to change"></textarea>
+    <hr>
+    <button type="submit" name="update" value="<%= id %>" class="btn btn-lg btn-primary">Update</button>
+</form>
+
+<%- include("partials/footer") %> 

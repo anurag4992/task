@@ -1,0 +1,18 @@
+<%- include("partials/header") %> 
+
+<h1 class="mt-5 mb-3" style="text-decoration: underline;">Welcome to taskUs <%= name %></h1>
+<h4>This is a task saving application.</h4>
+<form action="/log<%= inOrOut %>" method="get">
+    <button type="submit" class="btn btn-lg btn-warning my-3">Log<%= inOrOut %></button>
+    <p style="display: <%= disp %>">If you are a registered user, please sign in</p>
+</form>
+<h3 style="display: <%= disp %>">OR</h3>
+<form action="/signup" method="get" class="mt-4" style="display: <%= disp %>">
+    <button type="submit"class="btn btn-lg btn-warning mb-3">Signup</button>
+    <p>If you are a new user</p>
+</form>
+<form action="/viewAll" method="get">
+    <button type="submit" class="btn btn-lg btn-warning mb-3">View All Tasks</button>
+</form>
+
+<%- include("partials/footer") %> 

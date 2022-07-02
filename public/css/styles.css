@@ -1,0 +1,31 @@
+.viewAll {
+    padding: 2rem 1rem;
+}
+
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.newTask {
+    justify-content: center;
+}
+
+.item {
+   width: fit-content;
+   align-self: center;
+}
+
+.here {
+    text-decoration: underline;
+    text-decoration-color: orange;
+}
+
+.task span {
+    width: 70vw;
+}
+
+.task form {
+    width: 7vw;
+}
